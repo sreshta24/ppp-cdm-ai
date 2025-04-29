@@ -989,7 +989,7 @@ def get_llm_summary(user_prompt: str, df: pd.DataFrame) -> str:
     try:
         client = openai.Client(api_key=os.getenv("OPENAI_API_KEY"))
         response = client.chat.completions.create(
-                model="gpt-4o-mini",  # Or "gpt-4" / "gpt-4-0125-preview"
+                model="o3-mini",  # Or "gpt-4" / "gpt-4-0125-preview"
                 messages=[{"role": "user", "content": prompt}],
                 max_tokens=1024,
                 temperature=0.7
@@ -1034,7 +1034,7 @@ Use clear language and help Cortex Analyst build the most accurate query.
     try:
         client = openai.Client(api_key=os.getenv("OPENAI_API_KEY"))
         response = client.chat.completions.create(
-            model="gpt-4o-mini",  # Or "gpt-4" / "gpt-4-0125-preview"
+            model="o3-mini",  # Or "gpt-4" / "gpt-4-0125-preview"
             messages=[{"role": "user", "content": new_prompt}],
             max_tokens=1024,
             temperature=0.7
