@@ -1,0 +1,1404 @@
+name: pppcdmai
+tables:
+  - name: PPP_CDM_BYNDER_MEDIA
+    base_table:
+      database: BRIDGEHORN_SANDBOX
+      schema: CORTEX_ANALYST
+      table: PPP_CDM_BYNDER_MEDIA
+    primary_key:
+      columns:
+        - ASSET_ID
+    dimensions:
+      - name: ASSET_ID
+        expr: ASSET_ID
+        data_type: VARCHAR(50)
+        unique: true
+        description: Unique identifier for a media asset in the content delivery management system.
+        sample_values:
+          - CC19377C-0DBB-4AFE-A8C42B706CA75699
+          - 0507AD26-3C36-42E8-B0DFE863A7477BE7
+          - 11538B29-1614-481C-94CAC38114F2E6C8
+        synonyms:
+          - asset_identifier
+          - id
+          - asset_key
+          - unique_asset_identifier
+          - asset_reference
+      - name: ASSET_TYPE
+        expr: ASSET_TYPE
+        data_type: VARCHAR(50)
+        description: The type of media asset being used, such as a document, image, or video.
+        sample_values:
+          - document
+          - image
+          - video
+        synonyms:
+          - asset_category
+          - asset_class
+          - asset_classification
+          - content_type
+          - media_type
+          - resource_type
+      - name: ASSET_NAME
+        expr: ASSET_NAME
+        data_type: VARCHAR(16777216)
+        description: The name of the media asset used in the PPP CDM bynder.
+        sample_values:
+          - P20_PL Assessment_03.07.25 (002)
+          - 99C_Debt Recovery Summary_03.18.24_v3
+          - PPP_Separation and TSA Topics_04.10.24_v01
+        synonyms:
+          - asset_title
+          - resource_name
+          - item_name
+          - object_name
+          - entity_name
+          - resource_label
+          - item_label
+          - object_label
+          - entity_label
+      - name: PROPERTY_ASSET_TYPE
+        expr: PROPERTY_ASSET_TYPE
+        data_type: VARCHAR(16777216)
+        description: The type of media asset being used, such as a document, graphic, or photo, that is associated with a property.
+        sample_values:
+          - Document
+          - Graphic
+          - Photo
+        synonyms:
+          - asset_category
+          - asset_classification
+          - asset_group
+          - asset_label
+          - asset_tag
+          - asset_type_description
+          - content_type
+          - media_type
+          - property_asset_class
+      - name: PROPERTY_DELIVERABLE_TYPE
+        expr: PROPERTY_DELIVERABLE_TYPE
+        data_type: VARCHAR(16777216)
+        description: The type of deliverable or output that is expected to be produced as a result of a project or engagement, such as a business process improvement plan, an organizational assessment report, a value creation plan, or a detailed implementation plan (DIP) budget.
+        sample_values:
+          - Business_Process_Improvement, Organizational_Assessment, Value_Creation_Plan
+          - DIP_Budget
+        synonyms:
+          - deliverable_category
+          - asset_delivery_type
+          - output_type
+          - product_type
+          - deliverable_classification
+      - name: PROPERTY_ASSET_SUB_TYPE
+        expr: PROPERTY_ASSET_SUB_TYPE
+        data_type: VARCHAR(16777216)
+        description: The type of asset or media used in the pitch or presentation, such as a deliverable document, a pitch presentation, or a tombstone advertisement.
+        sample_values:
+          - Deliverable
+          - Pitch
+          - Tombstones
+        synonyms:
+          - asset_subcategory
+          - sub_asset_type
+          - asset_subtype_classification
+          - secondary_asset_type
+          - asset_sub_classification
+      - name: MINI_URL
+        expr: MINI_URL
+        data_type: VARCHAR(16777216)
+        description: URL of the mini version of an image asset stored in the Bynder media library.
+        sample_values:
+          - https://pppllc.bynder.com/m/c83ba9fe698bd7d/mini-P20_PL-Assessment_03-07-25-002.jpg
+          - https://pppllc.bynder.com/m/38ed3ea54a88faa/mini-99C_Debt-Recovery-Summary_03-18-24_v3.jpg
+        synonyms:
+          - small_image_url
+          - thumbnail_link
+          - compact_url
+          - short_url
+          - tiny_url
+          - mini_link
+          - small_link
+      - name: WEBIMAGE_URL
+        expr: WEBIMAGE_URL
+        data_type: VARCHAR(16777216)
+        description: URL of the web image stored in Bynder media library.
+        sample_values:
+          - https://pppllc.bynder.com/m/c83ba9fe698bd7d/webimage-P20_PL-Assessment_03-07-25-002.jpg
+          - https://pppllc.bynder.com/m/38ed3ea54a88faa/webimage-99C_Debt-Recovery-Summary_03-18-24_v3.jpg
+        synonyms:
+          - image_url
+          - web_image_link
+          - image_link
+          - web_image_path
+          - image_path
+          - web_image_source
+          - image_source
+      - name: THUMBNAIL_URL
+        expr: THUMBNAIL_URL
+        data_type: VARCHAR(16777216)
+        description: The URL of the thumbnail image associated with a media asset in the Bynder media library.
+        sample_values:
+          - https://pppllc.bynder.com/m/c83ba9fe698bd7d/thul-P20_PL-Assessment_03-07-25-002.jpg
+          - https://pppllc.bynder.com/m/38ed3ea54a88faa/thul-99C_Debt-Recovery-Summary_03-18-24_v3.jpg
+        synonyms:
+          - image_preview_url
+          - thumbnail_image_url
+          - preview_image_url
+          - small_image_url
+          - image_teaser_url
+      - name: PROPERTY_INTAPP_OPPORTUNITY_ID
+        expr: PROPERTY_INTAPP_OPPORTUNITY_ID
+        data_type: VARCHAR(16777216)
+        description: Unique identifier for an opportunity in the Property & Casualty Insurance application.
+        sample_values:
+          - "272209\r\n"
+          - "255599\r\n"
+          - "255314\r\n"
+        synonyms:
+          - internal_app_opportunity_id
+          - intapp_opportunity_identifier
+          - opportunity_id_internal_app
+          - internal_application_opportunity_id
+          - intapp_id
+      - name: PROPERTY_KANTATA_ENGAGEMENT_CODE
+        expr: PROPERTY_KANTATA_ENGAGEMENT_CODE
+        data_type: VARCHAR(16777216)
+        description: Unique identifier for a specific engagement or project within Kantata, a professional services automation platform.
+        sample_values:
+          - "P2O01_PI\r\n"
+          - "99C01_TRS\r\n"
+          - "KNI01_PI_Carve Out\r\n"
+        synonyms:
+          - kantata_engagement_id
+          - engagement_code
+          - project_code
+          - kantata_project_id
+          - engagement_identifier
+      - name: PROPERTY_DELIVERABLE_TYPE_OTHER
+        expr: PROPERTY_DELIVERABLE_TYPE_OTHER
+        data_type: VARCHAR(16777216)
+        description: This column captures the type of deliverable provided by the advisor for the property, with options including a comprehensive final assessment and scenario analysis, or a restructuring scenario deck, which outlines potential restructuring options for the property.
+        sample_values:
+          - "Final Assessment & Scenario Analysis\r\n"
+          - "Restructuring scenario deck\r\n"
+        synonyms:
+          - deliverable_type_misc
+          - other_deliverable_type
+          - additional_deliverable_type
+          - deliverable_type_alternate
+          - non_standard_deliverable_type
+  - name: PPP_CDM_COMPANY
+    base_table:
+      database: BRIDGEHORN_SANDBOX
+      schema: CORTEX_ANALYST
+      table: PPP_CDM_COMPANY
+    primary_key:
+      columns:
+        - COMPANY_ID
+    dimensions:
+      - name: COMPANY_ID
+        expr: COMPANY_ID
+        data_type: NUMBER(38,0)
+        unique: true
+        description: Unique identifier for a company in the PPP CDM database.
+        sample_values:
+          - "100438"
+          - "101662"
+          - "101474"
+        synonyms:
+          - company_key
+          - organization_id
+          - business_id
+          - entity_id
+          - corporate_id
+          - firm_id
+      - name: COMPANY_NAME
+        expr: COMPANY_NAME
+        data_type: VARCHAR(255)
+        description: The name of the company that has invested in or is associated with a particular project or deal.
+        sample_values:
+          - Turnspire Capital Partners
+          - the city of detroit
+          - way point private capital
+        synonyms:
+          - company_title
+          - organization_name
+          - business_name
+          - firm_name
+          - corporate_name
+          - entity_name
+      - name: COMPANY_TYPE
+        expr: COMPANY_TYPE
+        data_type: VARCHAR(16777216)
+        description: The type of company involved in the Portage-Point Partners (PPP) project, such as a law firm, financial advisor, operating company, or lender.
+        sample_values:
+          - Law Firm
+          - Advisor, Other, Operating Company
+          - Operating Company, Lender
+        synonyms:
+          - company_category
+          - organization_type
+          - business_type
+          - entity_type
+          - firm_type
+          - corporate_type
+      - name: COMPANY_WEBSITE
+        expr: COMPANY_WEBSITE
+        data_type: VARCHAR(255)
+        description: The website URL of the company.
+        sample_values:
+          - www.impactvc.com
+          - www.pacwestbancorp.com
+          - www.farmsteadcapital.com
+        synonyms:
+          - company_url
+          - website_url
+          - company_domain
+          - website_address
+          - online_presence
+          - company_link
+      - name: COMPANY_DESCRIPTION
+        expr: COMPANY_DESCRIPTION
+        data_type: VARCHAR(16777216)
+        description: ""
+        sample_values:
+          - Operator of an investment firm intended to develop middle-market companies. The company focuses on partnering with founders, families, and management teams to enhance operational scalability and drive long-term value, enabling businesses to achieve market leadership through strategic investments and a commitment to integrity and transparency in their collaborative approach.
+          - Developer of a mobile application designed to make parking facilities future-proofed, cities more accessible, and the world connected. The company's application connects parking lots, garages, and valet services and exchanges data and payments, enabling customers to reserve parking spots, compare rates, and find open parking.
+          - Provider of IT consulting services catering to banking, communications, consumer products, hospitality, retail, insurance, technology, transportation, healthcare, public sector, wealth management, and oil and gas industries. The company offers services such as cloud computing, artificial intelligence, cybersecurity, ERP, and data management platforms, enabling businesses to modernize their operations, enhance efficiency, and achieve strategic goals through advanced technological innovations and support.
+        synonyms:
+          - company_info
+          - company_overview
+          - company_summary
+          - company_details
+          - company_profile
+          - company_bio
+          - company_narrative
+      - name: LAST_ACTIVITY_DATE
+        expr: LAST_ACTIVITY_DATE
+        data_type: VARCHAR(16777216)
+        description: The date and time of the most recent activity or update associated with the company.
+        sample_values:
+          - "2025-01-24T15:00:00Z"
+          - "2025-03-05T22:21:00Z"
+        synonyms:
+          - last_interaction_date
+          - most_recent_activity
+          - latest_activity_timestamp
+          - recent_engagement_date
+          - last_event_date
+    facts:
+      - name: COMPANY_TIER_NAME
+        expr: COMPANY_TIER_NAME
+        data_type: NUMBER(38,0)
+        description: The tier level of the company, with 2 representing a Tier 2 company and 5 representing a Tier 5 company, indicating the company's size, revenue, or market influence, with higher tiers typically representing larger or more influential companies.
+        sample_values:
+          - "2"
+          - "5"
+        synonyms:
+          - company_rank
+          - company_level
+          - company_category
+          - company_classification
+          - company_grade
+      - name: DAYS_SINCE_LAST_ACTIVITY
+        expr: DAYS_SINCE_LAST_ACTIVITY
+        data_type: NUMBER(38,0)
+        description: The number of days since the company last engaged in any activity, such as a transaction, login, or other interaction, indicating the length of time the company has been inactive.
+        sample_values:
+          - "47"
+          - "19"
+          - "11"
+        synonyms:
+          - days_since_last_event
+          - days_inactive
+          - inactivity_days
+          - time_since_last_activity
+          - days_since_last_update
+  - name: PPP_CDM_KANTATA_PROJECTS
+    base_table:
+      database: BRIDGEHORN_SANDBOX
+      schema: CORTEX_ANALYST
+      table: PPP_CDM_KANTATA_PROJECTS
+    primary_key:
+      columns:
+        - PROJECT_ID
+    dimensions:
+      - name: PROJECT_ID
+        expr: PROJECT_ID
+        data_type: NUMBER(38,0)
+        unique: true
+      - name: PROJECT_TITLE
+        expr: PROJECT_TITLE
+        data_type: VARCHAR(255)
+        description: The title of the project as defined by the project team, which provides a brief description of the project's objective or scope.
+        sample_values:
+          - TEL03_CRO_BK
+          - KRS03_TRS_FA
+          - Draft - AHF (Paceline)
+        synonyms:
+          - project_name
+          - project_heading
+          - title
+          - caption
+          - heading
+          - project_caption
+          - project_heading_name
+      - name: PROJECT_STATUS
+        expr: PROJECT_STATUS
+        data_type: VARCHAR(50)
+        description: The current state of a project, indicating whether it has been finished (Completed), terminated prior to completion (Cancelled), or is currently in progress (Active).
+        sample_values:
+          - Completed
+          - Cancelled
+          - Active
+        synonyms:
+          - project_phase
+          - project_stage
+          - project_progress
+          - project_condition
+          - project_state
+          - project_situation
+      - name: INTACCT_GL_CLASS_ID
+        expr: INTACCT_GL_CLASS_ID
+        data_type: VARCHAR(50)
+        description: General Ledger Class Identifier for Intacct Accounting System
+        sample_values:
+          - RC-96264
+          - RC-168408
+          - RC-46240
+        synonyms:
+          - general_ledger_class_id
+          - intacct_gl_class_code
+          - gl_class_identifier
+          - accounting_class_id
+          - financial_class_code
+      - name: INTACCT_GL_CUSTOMER_ID
+        expr: INTACCT_GL_CUSTOMER_ID
+        data_type: VARCHAR(50)
+        description: Unique identifier for the customer in the general ledger system.
+        sample_values:
+          - C-10167
+          - C-10098
+          - C-10153
+        synonyms:
+          - customer_gl_id
+          - intacct_customer_id
+          - gl_customer_account
+          - intacct_client_id
+          - customer_account_id
+          - gl_customer_number
+      - name: INTACCT_GL_LOCATION_ID
+        expr: INTACCT_GL_LOCATION_ID
+        data_type: VARCHAR(50)
+        description: Unique identifier for the general ledger location in Intacct, representing a specific physical or logical location where business activities are performed.
+        sample_values:
+          - L-2000
+          - L-6000
+        synonyms:
+          - location_id_intacct_gl
+          - intacct_gl_location_code
+          - gl_location_identifier
+          - intacct_location_code
+          - general_ledger_location_id
+      - name: INTACCT_GL_PROJECT_ID
+        expr: INTACCT_GL_PROJECT_ID
+        data_type: VARCHAR(50)
+        description: Unique identifier for a project in the Intacct general ledger system.
+        sample_values:
+          - "44219535"
+          - "43469603"
+          - "43862644"
+        synonyms:
+          - project_gl_id
+          - intacct_project_id
+          - gl_project_code
+          - project_accounting_id
+          - intacct_project_account_id
+      - name: IS_D_A_FEE
+        expr: IS_D_A_FEE
+        data_type: VARCHAR(20)
+        description: Indicates whether a fee is applicable for the project's Design and Administration (D&A) phase.
+        sample_values:
+          - Not Applicable
+          - "Yes"
+        synonyms:
+          - is_d_and_a_fee
+          - d_and_a_fee
+          - is_da_fee
+          - is_d_a_fee_flag
+          - d_a_fee_indicator
+      - name: FEE_TYPE
+        expr: FEE_TYPE
+        data_type: VARCHAR(16777216)
+        description: The type of fee arrangement for the project, either a fixed fee for the entire project or a fee based on the time and materials used.
+        sample_values:
+          - Fixed_Fee
+          - Time & Materials
+        synonyms:
+          - fee_structure
+          - payment_terms
+          - billing_method
+          - revenue_recognition_method
+          - compensation_type
+          - pricing_model
+      - name: TEAM_LEAD_NAME
+        expr: TEAM_LEAD_NAME
+        data_type: VARCHAR(255)
+        description: The name of the team lead assigned to the project.
+        sample_values:
+          - Adam Chonich, Ryan Mersch
+          - Tom Palmer
+          - Zachary Rose
+        synonyms:
+          - team_lead_full_name
+          - project_lead_name
+          - project_manager_name
+          - team_lead_fullname
+          - project_lead_full_name
+    facts:
+      - name: PROJECT_ID
+        expr: PROJECT_ID
+        data_type: NUMBER(38,0)
+        description: Unique identifier for a project in the Kantata platform.
+        sample_values:
+          - "44208386"
+          - "44410809"
+          - "44546488"
+        synonyms:
+          - project_number
+          - workspace_id
+          - project_identifier
+          - unique_project_code
+          - project_key
+      - name: ADMIN_FEE_PCT
+        expr: ADMIN_FEE_PCT
+        data_type: NUMBER(10,2)
+        description: The percentage of the project's total cost that is allocated as an administrative fee.
+        sample_values:
+          - "0.00"
+          - "4.50"
+        synonyms:
+          - admin_fee_rate
+          - admin_charge_percentage
+          - management_fee_percent
+          - admin_cost_percentage
+          - administrative_fee_rate
+  - name: PPP_CDM_OPPORTUNITIES
+    base_table:
+      database: BRIDGEHORN_SANDBOX
+      schema: CORTEX_ANALYST
+      table: PPP_CDM_OPPORTUNITIES
+    primary_key:
+      columns:
+        - OPPORTUNITY_ID
+    dimensions:
+      - name: COMPANY_ID
+        expr: COMPANY_ID
+        data_type: NUMBER(38,0)
+        unique: false
+        description: Foreign key reference to the company in the PPP CDM database.
+        sample_values:
+          - "100438"
+          - "101662"
+          - "101474"
+        synonyms:
+          - company_key
+          - organization_id
+          - business_id
+          - entity_id
+          - corporate_id
+          - firm_id
+      - name: COMPANY_NAME
+        expr: COMPANY_NAME
+        data_type: VARCHAR(255)
+        description: The name of the company that has invested in or is associated with a particular project or deal.
+        sample_values:
+          - Turnspire Capital Partners
+          - the city of detroit
+          - way point private capital
+        synonyms:
+          - company_title
+          - organization_name
+          - business_name
+          - firm_name
+          - corporate_name
+          - entity_name
+      - name: OPPORTUNITY_ID
+        expr: OPPORTUNITY_ID
+        unique: true
+        data_type: VARCHAR(16777216)
+        description: Unique identifier for a sales opportunity.
+        sample_values:
+          - "84553"
+          - "84554"
+          - "84557"
+        synonyms:
+          - opportunity_key
+          - opportunity_identifier
+          - opportunity_number
+          - opportunity_code
+          - entry_id
+          - opportunity_reference
+      - name: OPPORTUNITY_NAME
+        expr: OPPORTUNITY_NAME
+        data_type: VARCHAR(16777216)
+        description: The name of a specific business opportunity being tracked in the PPP CDM (Public-Private Partnership Customer Data Management) system.
+        sample_values:
+          - Guggenheim PortCo
+          - Skadden Large Pubco
+          - Solera
+        synonyms:
+          - opportunity_title
+          - deal_name
+          - project_name
+          - business_opportunity
+          - sales_opportunity
+          - prospect_name
+          - potential_deal
+          - new_business_opportunity
+          - sales_title
+      - name: OPPORTUNITY_STAGE
+        expr: OPPORTUNITY_STAGE
+        data_type: VARCHAR(16777216)
+        description: The current stage of a sales opportunity, indicating whether it has been declined by the customer, lost to a competitor, or successfully won by the sales team.
+        sample_values:
+          - Declined
+          - Lost
+          - Won
+        synonyms:
+          - sales_stage
+          - opportunity_status
+          - deal_stage
+          - pipeline_stage
+          - opportunity_phase
+          - sales_phase
+          - business_stage
+          - opportunity_progress
+      - name: PRACTICE_LINE
+        expr: PRACTICE_LINE
+        data_type: VARCHAR(16777216)
+        description: The type of practice line associated with the opportunity, where PI refers to Professional Indemnity and Other refers to all other types of practice lines.
+        sample_values:
+          - PI
+          - Other
+        synonyms:
+          - practice_area
+          - business_line
+          - service_line
+          - department
+          - business_unit
+          - practice_group
+      - name: OPPORTUNITY_TYPE
+        expr: OPPORTUNITY_TYPE
+        data_type: VARCHAR(16777216)
+        description: The type of opportunity being pursued, such as a change in the company's operating model or the provision of board services.
+        sample_values:
+          - Undefined (DO NOT USE)
+          - Board Services
+          - Operating Model Realignment
+        synonyms:
+          - opportunity_category
+          - opportunity_classification
+          - opportunity_label
+          - opportunity_tag
+          - opportunity_group
+          - opportunity_segment
+          - opportunity_class
+      - name: ORIGINATORS
+        expr: ORIGINATORS
+        data_type: VARCHAR(16777216)
+        description: The name of the originator who created the opportunity.
+        sample_values:
+          - Matthew Ray
+          - Arun Lamba
+        synonyms:
+          - initiators
+          - creators
+          - founders
+          - originators
+          - authors
+          - instigators
+          - starters
+          - proposers
+          - movers
+      - name: OPPORTUNITY_STATUS
+        expr: OPPORTUNITY_STATUS
+        data_type: VARCHAR(16777216)
+        description: The current status of the opportunity, indicating whether it has been closed or is still open.
+        sample_values:
+          - Closed
+          - Open
+        synonyms:
+          - opportunity_state
+          - opportunity_phase
+          - sales_stage
+          - opportunity_progress
+          - deal_status
+          - pipeline_stage
+          - sales_status
+          - opportunity_condition
+      - name: HARVEST_PROJECT_CODE
+        expr: HARVEST_PROJECT_CODE
+        data_type: VARCHAR(16777216)
+        description: Unique identifier for a specific project or initiative within the organization, combining the project code (APC01_BS) with a brief description of the project's focus area (Ind Director;Outcome Board Services).
+        sample_values:
+          - APC01_BS_Ind Director
+          - Outcome Board Services
+        synonyms:
+          - harvest_project_id
+          - project_code
+          - project_identifier
+          - harvest_id
+          - project_reference
+      - name: REFERRAL_COMPANY_TYPE
+        expr: REFERRAL_COMPANY_TYPE
+        data_type: VARCHAR(16777216)
+        description: The type of company that referred the opportunity, such as an investment bank or lender, indicating the source of the potential business.
+        sample_values:
+          - Investment Bank
+          - Lender
+        synonyms:
+          - referring_company_category
+          - company_referral_type
+          - referral_source_type
+          - company_type_referral
+          - primary_referral_company_category
+      - name: REFERRAL_COMPANY_TYPE_2
+        expr: REFERRAL_COMPANY_TYPE_2
+        data_type: VARCHAR(16777216)
+        description: The type of company that referred the opportunity, categorized as either a Law Firm or an Advisor.
+        sample_values:
+          - Law Firm
+          - Advisor
+        synonyms:
+          - referral_company_category_2
+          - secondary_referral_company_type
+          - referral_company_subtype
+          - company_referral_type_2
+          - alternate_referral_company_type
+      - name: INDUSTRY1
+        expr: INDUSTRY1
+        data_type: VARCHAR(16777216)
+        description: The industry classification of the opportunity, such as the sector or category that the potential investment or project belongs to.
+        sample_values:
+          - Business & Industrial Services
+          - Automotive & Industrials
+        synonyms:
+          - sector
+          - industry_type
+          - business_sector
+          - market_segment
+          - industry_category
+      - name: INDUSTRY2
+        expr: INDUSTRY2
+        data_type: VARCHAR(16777216)
+        description: The industry classification of the opportunity, with possible values being "Healthcare" or "Retail", indicating the sector or market in which the opportunity exists.
+        sample_values:
+          - Healthcare
+          - Retail
+        synonyms:
+          - sector2
+          - industry_sector2
+          - industry_category2
+          - business_sector2
+          - market_segment2
+      - name: INDUSTRY3
+        expr: INDUSTRY3
+        data_type: VARCHAR(16777216)
+        description: This column categorizes opportunities by the industry they belong to, specifically at a more granular level (INDUSTRY3), providing a more detailed classification within the broader industry sectors.
+        sample_values:
+          - Business & Industrial Services
+          - Energy, Power & Processing
+        synonyms:
+          - sector
+          - industry_category
+          - business_sector
+          - market_segment
+          - industry_classification
+      - name: NON_STANDARD_INDUSTRY_SECTOR_SUBSECTOR
+        expr: NON_STANDARD_INDUSTRY_SECTOR_SUBSECTOR
+        data_type: VARCHAR(16777216)
+        description: ""
+      - name: PREPORTAGE_POINT_ENGAGEMENT_DEAL_NAME
+        expr: PREPORTAGE_POINT_ENGAGEMENT_DEAL_NAME
+        data_type: VARCHAR(16777216)
+        description: Indicates whether the opportunity is a pre-reportage point engagement deal, where the deal is reported before the revenue is recognized.
+        sample_values:
+          - "No"
+          - "Yes"
+        synonyms:
+          - engagement_deal_name
+          - deal_name
+          - engagement_point_name
+          - point_of_engagement_name
+          - engagement_deal_title
+      - name: SECONDARY_REFERRAL_COMPANIES
+        expr: SECONDARY_REFERRAL_COMPANIES
+        data_type: VARCHAR(16777216)
+        description: This column captures the names of secondary referral companies that have referred opportunities to the organization, indicating potential partnerships or collaborations in the private equity and credit markets.
+        sample_values:
+          - Onex Corporation, Onex Credit Partners
+          - Monroe Capital LLC
+        synonyms:
+          - secondary_referral_firms
+          - secondary_referring_companies
+          - secondary_company_referrals
+          - alternate_referral_companies
+          - secondary_business_referrals
+      - name: SECONDARY_REFERRAL_CONTACTS
+        expr: SECONDARY_REFERRAL_CONTACTS
+        data_type: VARCHAR(16777216)
+        description: The name of the secondary contact person who referred the opportunity.
+        sample_values:
+          - Mark Cordes
+          - Rich Caruso
+        synonyms:
+          - secondary_referrers
+          - alternate_referral_contacts
+          - additional_referral_contacts
+          - secondary_contacts
+          - secondary_referral_individuals
+      - name: CONFIDENTIAL
+        expr: CONFIDENTIAL
+        data_type: BOOLEAN
+        description: Indicates whether the opportunity is confidential and should not be visible to all users.
+        sample_values:
+          - "FALSE"
+          - "TRUE"
+        synonyms:
+          - private
+          - sensitive
+          - classified
+          - restricted
+          - non_public
+          - secret
+          - undisclosed
+      - name: RESTRICTED_LIST
+        expr: RESTRICTED_LIST
+        data_type: BOOLEAN
+        description: Indicates whether the opportunity is restricted or not, with TRUE signifying that the opportunity is restricted and FALSE indicating that it is not.
+        sample_values:
+          - "FALSE"
+          - "TRUE"
+        synonyms:
+          - access_controlled
+          - sensitive_info
+          - confidential_list
+          - restricted_access
+          - protected_info
+          - secure_list
+      - name: COMPANY_NAME
+        expr: COMPANY_NAME
+        data_type: VARCHAR(16777216)
+        description: The name of the company associated with the opportunity.
+        sample_values:
+          - Skadden Arps Slate Meagher & Flom LLP
+          - Advanced Converting Works
+        synonyms:
+          - organization_name
+          - company_title
+          - business_name
+          - firm_name
+          - corporate_name
+          - entity_name
+      - name: REFERRAL_CONTACTS
+        expr: REFERRAL_CONTACTS
+        data_type: VARCHAR(16777216)
+        description: The name of the contact who referred the opportunity.
+        sample_values:
+          - Ryan Bennett
+          - Ron Meisler
+        synonyms:
+          - referral_individuals
+          - referral_parties
+          - referral_participants
+          - referral_representatives
+          - referral_personnel
+      - name: REFERRAL_COMPANIES
+        expr: REFERRAL_COMPANIES
+        data_type: VARCHAR(16777216)
+        description: The column REFERRAL_COMPANIES represents the names of law firms that have referred clients or opportunities to the company, indicating potential partnerships or collaborations in the legal industry.
+        sample_values:
+          - Kirkland & Ellis LLP
+          - Skadden Arps Slate Meagher & Flom LLP
+        synonyms:
+          - referring_companies
+          - referring_firms
+          - referral_partners
+          - referring_entities
+          - referring_organizations
+    time_dimensions:
+      - name: OPEN_DATE
+        expr: OPEN_DATE
+        data_type: DATE
+        description: Date when the opportunity was opened.
+        sample_values:
+          - "2019-09-13"
+          - "2018-08-21"
+          - "2018-07-18"
+        synonyms:
+          - start_date
+          - creation_date
+          - initiation_date
+          - opening_date
+          - commencement_date
+          - inception_date
+      - name: ESTIMATED_CLOSE_DATE
+        expr: ESTIMATED_CLOSE_DATE
+        data_type: DATE
+        description: The date by which the sales opportunity is expected to be closed, resulting in a won or lost status.
+        sample_values:
+          - "2019-09-13"
+          - "2020-03-16"
+        synonyms:
+          - projected_close_date
+          - expected_completion_date
+          - forecasted_end_date
+          - predicted_close_date
+          - anticipated_closure_date
+          - planned_end_date
+      - name: LOAD_DATE
+        expr: LOAD_DATE
+        data_type: DATE
+        description: Date when the opportunity was loaded into the system.
+        sample_values:
+          - "2025-03-24"
+        synonyms:
+          - load_timestamp
+          - data_load_date
+          - data_load_timestamp
+          - load_datetime
+          - data_insert_date
+          - data_insert_timestamp
+    facts:
+      - name: TOTAL_ESTIMATED_FEES
+        expr: TOTAL_ESTIMATED_FEES
+        data_type: NUMBER(38,0)
+        description: The total estimated fees associated with each opportunity.
+        sample_values:
+          - "500000"
+          - "100000"
+        synonyms:
+          - total_project_cost
+          - estimated_total_fees
+          - total_project_value
+          - estimated_project_cost
+          - total_fee_estimate
+      - name: WIN_PROBABILITY
+        expr: WIN_PROBABILITY
+        data_type: NUMBER(3,2)
+        description: The probability of winning a sales opportunity, expressed as a decimal value between 0 and 1, where 0 represents a 0% chance of winning and 1 represents a 100% chance of winning.
+        sample_values:
+          - "0.08"
+          - "0.00"
+          - "0.50"
+        synonyms:
+          - chance_of_winning
+          - probability_of_success
+          - win_chance
+          - success_likelihood
+          - confidence_level
+      - name: ESTIMATED_REVENUE
+        expr: ESTIMATED_REVENUE
+        data_type: NUMBER(38,0)
+        description: The estimated revenue generated by each opportunity.
+        sample_values:
+          - "0"
+          - "250000"
+          - "100000"
+        synonyms:
+          - projected_income
+          - forecasted_revenue
+          - expected_revenue
+          - predicted_revenue
+          - anticipated_revenue
+          - forecasted_earnings
+          - projected_earnings
+          - estimated_turnover
+  - name: PPP_CDM_OPPORTUNITY_PHASE
+    base_table:
+      database: BRIDGEHORN_SANDBOX
+      schema: CORTEX_ANALYST
+      table: PPP_CDM_OPPORTUNITY_PHASE
+    primary_key:
+      columns:
+        - OPPORTUNITY_PHASE_ID
+    dimensions:
+      - name: OPPORTUNITY_PHASE_ID
+        expr: OPPORTUNITY_PHASE_ID
+        unique: true
+        data_type: VARCHAR(16777216)
+        description: Unique identifier for a specific phase within an opportunity in the customer relationship management (CRM) system.
+        sample_values:
+          - "254483"
+          - "254532"
+          - "254615"
+        synonyms:
+          - opportunity_phase_key
+          - phase_id
+          - opportunity_id
+          - entry_id
+          - phase_identifier
+          - opportunity_phase_key_id
+          - phase_unique_id
+      - name: OPPORTUNITY_PHASE_NAME
+        expr: OPPORTUNITY_PHASE_NAME
+        data_type: VARCHAR(16777216)
+        description: The stage or phase of a Public-Private Partnership (PPP) opportunity, such as the initial staffing phase, a specific project milestone like Memorial MRI, or a company-specific phase like Guggenheim PortCo.
+        sample_values:
+          - Staffing
+          - Memorial MRI
+          - Guggenheim PortCo
+        synonyms:
+          - phase_name
+          - opportunity_phase
+          - opportunity_status
+          - phase_description
+          - opportunity_stage_name
+          - phase_title
+      - name: PRACTICE_LINE
+        expr: PRACTICE_LINE
+        data_type: VARCHAR(16777216)
+        description: The PRACTICE_LINE column represents the specific area of expertise or business segment within the organization that an opportunity is associated with, such as Other or PI (Presumably, Professional Services or Project Implementation).
+        sample_values:
+          - " Other"
+          - " PI"
+        synonyms:
+          - practice_area
+          - business_line
+          - service_line
+          - department
+          - practice_specialty
+          - business_practice
+          - professional_service_line
+      - name: IB_SERVICE_LINE
+        expr: IB_SERVICE_LINE
+        data_type: VARCHAR(16777216)
+        description: Identifies the service line associated with the opportunity, where CA represents Consulting and Advisory services and M&A represents Mergers and Acquisitions services.
+        sample_values:
+          - CA
+          - M&A
+        synonyms:
+          - service_line
+          - industry_business_service_line
+          - ib_service_category
+          - service_line_name
+          - industry_service_line
+          - business_service_line_category
+      - name: OPPORTUNITY_TYPE
+        expr: OPPORTUNITY_TYPE
+        data_type: VARCHAR(16777216)
+        description: The type of opportunity being pursued, such as a change in the company's operating model, a service provided to the company's board of directors, or an undefined opportunity that should not be used.
+        sample_values:
+          - Undefined (DO NOT USE)
+          - Operating Model Realignment
+          - Board Services
+        synonyms:
+          - opportunity_category
+          - opportunity_classification
+          - opportunity_label
+          - opportunity_tag
+          - opportunity_group
+          - opportunity_kind
+          - opportunity_subtype
+      - name: RELATED_OPPORTUNITY_ID
+        expr: RELATED_OPPORTUNITY_ID
+        data_type: VARCHAR(16777216)
+        description: Unique identifier of the related opportunity that is associated with the current opportunity phase.
+        sample_values:
+          - "84553"
+          - "84608"
+          - "84696"
+        synonyms:
+          - parent_opportunity_id
+          - associated_opportunity_id
+          - linked_opportunity_id
+          - related_opportunity_reference
+          - connected_opportunity_identifier
+      - name: RELATED_OPPORTUNITY_NAME
+        expr: RELATED_OPPORTUNITY_NAME
+        data_type: VARCHAR(16777216)
+        description: The name of the related opportunity associated with the current opportunity phase.
+        sample_values:
+          - Guggenheim PortCo
+          - Shiloh Industries Inc
+          - Precision Drilling
+        synonyms:
+          - associated_opportunity_name
+          - linked_opportunity_name
+          - related_project_name
+          - connected_opportunity_title
+          - affiliated_opportunity_name
+      - name: STATUS_REPORTING
+        expr: STATUS_REPORTING
+        data_type: VARCHAR(16777216)
+        description: The current status of the opportunity in the sales process, indicating whether it is a potential future engagement, a failed pre-engagement, or a completed engagement.
+        sample_values:
+          - 1. Prospective Engagement
+          - 2. Dead Pre-Engagement
+          - 4. Closed Engagement
+        synonyms:
+          - reporting_status
+          - status_update
+          - progress_reporting
+          - reporting_phase
+          - status_description
+      - name: OPPORTUNITY_STAGE
+        expr: OPPORTUNITY_STAGE
+        data_type: VARCHAR(16777216)
+        description: The current stage of the sales opportunity, indicating whether it has been closed, lost to a competitor, or declined by the customer.
+        sample_values:
+          - Closed
+          - Lost
+          - Declined
+        synonyms:
+          - sales_stage
+          - opportunity_status
+          - deal_stage
+          - pipeline_stage
+          - opportunity_phase_status
+          - sales_cycle_stage
+          - opportunity_progress
+          - deal_progress
+          - sales_process_stage
+      - name: PHASE_SUMMARY
+        expr: PHASE_SUMMARY
+        data_type: VARCHAR(16777216)
+        description: ""
+        sample_values:
+          - |-
+            Sponsor put in more money (as of April 2022).  Nothing needed right now.
+
+            ---
+
+            Reaching a boiling point with GCR, and they want to make sure we're standing by.  Running out of cash again in April following additional $2mm BMO loan.
+          - Marana is the original Ascent engagement. When we bought Ascent the name was changed
+        synonyms:
+          - phase_description
+          - phase_overview
+          - opportunity_phase_details
+          - phase_status
+          - phase_notes
+          - phase_comments
+      - name: ORIGINATORS
+        expr: ORIGINATORS
+        data_type: VARCHAR(16777216)
+        description: The person or team responsible for originating the opportunity.
+        sample_values:
+          - Matthew Ray
+          - Stuart Kaufman
+        synonyms:
+          - initiators
+          - creators
+          - founders
+          - originators
+          - authors
+          - inventors
+          - starters
+          - proposers
+          - instigators
+      - name: PITCH_TEAM
+        expr: PITCH_TEAM
+        data_type: VARCHAR(16777216)
+        description: The team responsible for pitching the opportunity to the client.
+        sample_values:
+          - Austin Paulding
+          - Adam Waldman
+        synonyms:
+          - pitching_team
+          - proposal_team
+          - sales_team
+          - account_team
+          - business_development_team
+          - deal_team
+      - name: ENGAGEMENT_TEAM
+        expr: ENGAGEMENT_TEAM
+        data_type: VARCHAR(16777216)
+        description: The team responsible for engaging with the customer during the opportunity phase.
+        sample_values:
+          - Mark Berger
+          - Stuart Kaufman
+        synonyms:
+          - project_team
+          - delivery_team
+          - engagement_group
+          - core_team
+          - working_group
+          - implementation_team
+          - project_delivery_team
+      - name: KEY_SME_S
+        expr: KEY_SME_S
+        data_type: VARCHAR(16777216)
+        description: The name of the Small to Medium-sized Enterprise (SME) Sales representative assigned to the opportunity.
+        sample_values:
+          - Mark Berger
+          - Arun Lamba
+        synonyms:
+          - key_subject_matter_experts
+          - key_sme_names
+          - subject_matter_experts
+          - key_experts
+          - key_specialists
+          - key_advisors
+      - name: CLOSING_CONTRIBUTOR_S
+        expr: CLOSING_CONTRIBUTOR_S
+        data_type: VARCHAR(16777216)
+        description: The individual who contributed to closing the opportunity.
+        sample_values:
+          - Mark Berger
+          - Arun Lamba
+        synonyms:
+          - key_contributor
+          - closing_team_member
+          - deal_closer
+          - contributor_to_closure
+          - key_person_involved_in_closure
+          - closure_contributor
+          - person_responsible_for_closure
+      - name: IN_COURT_OUT_OF_COURT
+        expr: IN_COURT_OUT_OF_COURT
+        data_type: VARCHAR(16777216)
+        description: Indicates whether the opportunity is being pursued through a court process (In Court) or through alternative dispute resolution methods outside of the court system (Out of Court).
+        sample_values:
+          - Out of Court
+          - In Court
+        synonyms:
+          - in_court_status
+          - court_status
+          - litigation_status
+          - dispute_resolution_status
+          - legal_proceeding_status
+      - name: PRE_PACKAGED
+        expr: PRE_PACKAGED
+        data_type: BOOLEAN
+        description: Indicates whether the opportunity is for a pre-packaged solution or a custom solution.
+        sample_values:
+          - "FALSE"
+          - "TRUE"
+        synonyms:
+          - pre_configured
+          - pre_built
+          - pre_assembled
+          - pre_defined
+          - pre_existing
+          - pre_developed
+          - off_the_shelf
+          - pre_arranged
+      - name: CHAPTER_11_REORGANIZATION
+        expr: CHAPTER_11_REORGANIZATION
+        data_type: BOOLEAN
+        description: Indicates whether the opportunity is related to a Chapter 11 reorganization, which is a type of bankruptcy filing in the United States that allows a company to restructure its debts and continue operating.
+        sample_values:
+          - "FALSE"
+          - "TRUE"
+        synonyms:
+          - chapter_eleven_reorganization
+          - bankruptcy_reorganization
+          - chapter_11_status
+          - reorganization_status
+          - insolvency_reorganization
+      - name: ENGAGEMENT_CODE
+        expr: ENGAGEMENT_CODE
+        data_type: VARCHAR(16777216)
+        description: A unique identifier for the engagement code associated with the opportunity phase, representing the specific sales engagement or marketing campaign that the opportunity is linked to.
+        sample_values:
+          - ACW01_FA_TWCF
+          - MUS01_TAS
+          - NEW01_TAS
+        synonyms:
+          - project_code
+          - engagement_id
+          - engagement_identifier
+          - project_identifier
+          - engagement_reference
+      - name: S3673_SALE
+        expr: S3673_SALE
+        data_type: BOOLEAN
+        description: Indicates whether the opportunity is in the sales phase.
+        sample_values:
+          - "FALSE"
+          - "TRUE"
+        synonyms:
+          - section_363_sale
+          - asset_sale
+          - bankruptcy_sale
+          - distressed_sale
+          - insolvency_sale
+          - court_supervised_sale
+    facts:
+      - name: BUDGET_YEAR
+        expr: BUDGET_YEAR
+        data_type: NUMBER(10,0)
+        description: The fiscal year in which the opportunity is budgeted.
+        sample_values:
+          - "2019"
+          - "2018"
+          - "2020"
+        synonyms:
+          - fiscal_year
+          - budget_cycle
+          - financial_year
+          - annual_budget
+          - budget_period
+      - name: TOTAL_ESTIMATED_FEE
+        expr: TOTAL_ESTIMATED_FEE
+        data_type: NUMBER(18,2)
+        description: The total estimated fee for the opportunity phase, representing the anticipated revenue or cost associated with the phase.
+        sample_values:
+          - "40000.00"
+          - "100000.00"
+        synonyms:
+          - estimated_total_fee
+          - total_project_cost
+          - total_fee_estimate
+          - estimated_project_cost
+          - total_cost_estimate
+          - estimated_total_project_fee
+      - name: WIN_PROBABILITY
+        expr: WIN_PROBABILITY
+        data_type: NUMBER(10,2)
+        description: The probability of winning a sales opportunity, expressed as a decimal value between 0.00 and 1.00, where 0.00 represents no chance of winning and 1.00 represents a 100% chance of winning.
+        sample_values:
+          - "0.00"
+          - "0.50"
+          - "0.08"
+        synonyms:
+          - winning_chance
+          - success_likelihood
+          - probability_of_success
+          - chance_of_winning
+          - success_probability
+      - name: ESTIMATED_REVENUE
+        expr: ESTIMATED_REVENUE
+        data_type: NUMBER(38,0)
+        description: The estimated revenue generated by each opportunity.
+        sample_values:
+          - "0"
+          - "250000"
+          - "100000"
+        synonyms:
+          - projected_income
+          - forecasted_revenue
+          - expected_revenue
+          - predicted_revenue
+          - anticipated_revenue
+      - name: ESTIMATED_PROJECT_DURATION_IN_WEEKS
+        expr: ESTIMATED_PROJECT_DURATION_IN_WEEKS
+        data_type: NUMBER(38,0)
+        description: The estimated duration of a project in weeks, representing the total number of weeks required to complete the project from start to finish.
+        sample_values:
+          - "28"
+          - "12"
+        synonyms:
+          - project_length_in_weeks
+          - estimated_project_length
+          - project_duration_weeks
+          - estimated_project_timeline
+          - project_weeks_estimate
+      - name: BUDGET_YEAR
+        expr: BUDGET_YEAR
+        data_type: NUMBER(38,0)
+        description: The year in which the budget for the opportunity was allocated.
+        sample_values:
+          - "2019"
+          - "2018"
+          - "2020"
+        synonyms:
+          - fiscal_year
+          - budget_cycle
+          - financial_year
+          - annual_budget
+          - budget_period
+      - name: LOAD_NUMBER
+        expr: LOAD_NUMBER
+        data_type: NUMBER(38,0)
+        description: Unique identifier for a load of cargo or freight, used to track and manage shipments.
+        sample_values:
+          - "202503240123589020500"
+        synonyms:
+          - load_id
+          - batch_number
+          - data_load_number
+          - load_sequence
+          - load_identifier
+      - name: NAME_ID
+        expr: NAME_ID
+        data_type: NUMBER(38,0)
+        description: Unique identifier for a specific opportunity in the PPP CDM (Public-Private Partnership Contract Data Management) system.
+        sample_values:
+          - "84553"
+          - "84554"
+          - "84558"
+        synonyms:
+          - unique_identifier
+          - identifier
+          - id_number
+          - person_id
+          - individual_id
+          - entity_id
+      - name: REFERRAL_CONTACT_COUNT
+        expr: REFERRAL_CONTACT_COUNT
+        data_type: NUMBER(18,0)
+        description: The number of contacts made to a referral source to pursue an opportunity.
+        sample_values:
+          - "1"
+          - "2"
+          - "3"
+        synonyms:
+          - number_of_referral_contacts
+          - referral_contact_total
+          - count_of_referral_contacts
+          - referral_contact_quantity
+          - total_referral_contacts
+      - name: REFERRAL_COMPANY_COUNT
+        expr: REFERRAL_COMPANY_COUNT
+        data_type: NUMBER(18,0)
+        description: The number of companies that have referred the opportunity to the sales team.
+        sample_values:
+          - "1"
+        synonyms:
+          - number_of_referring_companies
+          - count_of_referral_companies
+          - total_referral_companies
+          - referral_company_total
+          - company_referral_count
+relationships:
+  - join_type: inner
+    name: opportunities_fk_company
+    relationship_type: many_to_one
+    left_table: PPP_CDM_COMPANY
+    right_table: PPP_CDM_OPPORTUNITIES
+    relationship_columns:
+      - left_column: COMPANY_ID
+        right_column: COMPANY_ID
+  - join_type: inner
+    name: opp_fk_phase
+    relationship_type: many_to_one
+    left_table: PPP_CDM_OPPORTUNITY_PHASE
+    right_table: PPP_CDM_OPPORTUNITIES
+    relationship_columns:
+      - left_column: RELATED_OPPORTUNITY_ID
+        right_column: OPPORTUNITY_ID
+  - join_type: inner
+    name: opp_fk_bynder_media
+    relationship_type: many_to_one
+    left_table: PPP_CDM_OPPORTUNITIES
+    right_table: PPP_CDM_BYNDER_MEDIA
+    relationship_columns:
+      - left_column: OPPORTUNITY_ID
+        right_column: PROPERTY_INTAPP_OPPORTUNITY_ID
+  - join_type: inner
+    name: engagement_fk_kantata
+    relationship_type: many_to_one
+    left_table: PPP_CDM_OPPORTUNITY_PHASE
+    right_table: PPP_CDM_BYNDER_MEDIA
+    relationship_columns:
+      - left_column: ENGAGEMENT_CODE
+        right_column: PROPERTY_KANTATA_ENGAGEMENT_CODE
+  - join_type: inner
+    name: project_fk_engagement
+    relationship_type: many_to_one
+    left_table: PPP_CDM_KANTATA_PROJECTS
+    right_table: PPP_CDM_OPPORTUNITY_PHASE
+    relationship_columns:
+      - left_column: PROJECT_TITLE
+        right_column: ENGAGEMENT_CODE
