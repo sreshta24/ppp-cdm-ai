@@ -606,7 +606,7 @@ with st.sidebar:
         st.session_state.chat_mode = chat_mode
         st.rerun()
 
-    st.image("static/logo.jpg", use_container_width=True)
+    st.image("logo.jpg", use_container_width=True)
 
     cols = st.columns(3)  # Create 3 columns in one row
 
