@@ -14,3 +14,4 @@ langchain-community
 langchain-anthropic
 langchain-xai
 langchain-google-genai
+tabulate
