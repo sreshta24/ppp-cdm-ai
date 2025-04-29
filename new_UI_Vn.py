@@ -986,15 +986,18 @@ def get_llm_summary(user_prompt: str, df: pd.DataFrame) -> str:
         "Do not write an email or respond to the customer — just summarize the key insights from the data only."
     )
 
-    # Configure and call once
-    client = openai.Client(api_key=os.getenv("OPENAI_API_KEY"))
-    response = client.chat.completions.create(
-            model="gpt-4o-mini",  # Or "gpt-4" / "gpt-4-0125-preview"
-            messages=[{"role": "user", "content": prompt}],
-            max_tokens=1024,
-            temperature=0.7
-        )
-    return response.choices[0].message.content
+    try:
+        client = openai.Client(api_key=os.getenv("OPENAI_API_KEY"))
+        response = client.chat.completions.create(
+                model="gpt-4o-mini",  # Or "gpt-4" / "gpt-4-0125-preview"
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=1024,
+                temperature=0.7
+            )
+        return response.choices[0].message.content
+    except Exception as e:
+        st.warning(f"Failed to summarize: {str(e)}", icon="⚠️")
+        return e
 
 
 
