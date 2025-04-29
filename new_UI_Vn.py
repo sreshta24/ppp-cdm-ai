@@ -35,7 +35,7 @@ load_dotenv()
 DATABASE = st.secrets["database"]
 SCHEMA = st.secrets["schema"]
 STAGE = st.secrets["stage"]
-FILE = st.sceret["yaml_name"]
+FILE = st.seceret["yaml_name"]
 WAREHOUSE = st.secrets["warehouse"]
 HOST = st.secrets["host"]
 ACCOUNT = st.secrets["account"]
