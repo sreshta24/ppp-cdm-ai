@@ -1,0 +1,16 @@
+streamlit
+pandas
+requests
+snowflake-connector-python
+python-dotenv
+google-generativeai
+altair
+xlsxwriter
+anthropic
+openai
+langchain
+langchain-openai
+langchain-community
+langchain-anthropic
+langchain-xai
+langchain-google-genai
