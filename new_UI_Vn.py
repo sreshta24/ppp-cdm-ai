@@ -970,7 +970,6 @@ def send_message(prompt: str) -> Dict[str, Any]:
             "request_id": "N/A",
         }
 
-
 def get_llm_summary(user_prompt: str, df: pd.DataFrame) -> str:
     if df.empty:
         return "No data available for summary."
@@ -988,12 +987,14 @@ def get_llm_summary(user_prompt: str, df: pd.DataFrame) -> str:
     )
 
     # Configure and call once
-    genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
-    model = genai.GenerativeModel("gemini-1.5-pro-latest")
-
-    # Generate content and grab .text
-    result = model.generate_content(prompt)
-    return result.text.strip()
+    client = openai.Client(api_key=os.getenv("OPENAI_API_KEY"))
+    response = client.chat.completions.create(
+            model="gpt-4o-mini",  # Or "gpt-4" / "gpt-4-0125-preview"
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=1024,
+            temperature=0.7
+        )
+    return response.choices[0].message.content
 
 
 
@@ -1030,7 +1031,7 @@ Use clear language and help Cortex Analyst build the most accurate query.
     try:
         client = openai.Client(api_key=os.getenv("OPENAI_API_KEY"))
         response = client.chat.completions.create(
-            model="gpt-3.5-turbo",  # Or "gpt-4" / "gpt-4-0125-preview"
+            model="gpt-4o-mini",  # Or "gpt-4" / "gpt-4-0125-preview"
             messages=[{"role": "user", "content": new_prompt}],
             max_tokens=1024,
             temperature=0.7
@@ -1039,6 +1040,7 @@ Use clear language and help Cortex Analyst build the most accurate query.
     except Exception as e:
         st.warning(f"Prompt enhancement failed: {str(e)}. Using original prompt.", icon="⚠️")
         return prompt
+
 
 def display_content(content: List[Dict[str, str]], request_id: Optional[str] = None, 
                    message_index: Optional[int] = None, prompt: Optional[str] = None):
