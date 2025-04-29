@@ -32,18 +32,18 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 load_dotenv()
 
 # Constants
-DATABASE = os.getenv("database")
-SCHEMA = os.getenv("schema")
-STAGE = os.getenv("stage")
+DATABASE = st.secrets["database"]
+SCHEMA = st.secrets["schema"]
+STAGE = st.secrets["stage"]
 FILE = "pppcdmai.yaml"
-WAREHOUSE = os.getenv("warehouse")
-HOST = os.getenv("host")
-ACCOUNT = os.getenv("account")
-USER = os.getenv("user_name")
-PASSWORD = os.getenv("password")
-ROLE = os.getenv("role")
-GOOGLE_API_KEY = os.getenv("GEMINI_API_KEY")
-ANTHROPIC_API_KEY=os.getenv("CLAUDE_API_KEY")
+WAREHOUSE = st.secrets["warehouse"]
+HOST = st.secrets["host"]
+ACCOUNT = st.secrets["account"]
+USER = st.secrets["user_name"]
+PASSWORD = st.secrets["password"]
+ROLE = st.secrets["role"]
+GOOGLE_API_KEY = st.secrets["GEMINI_API_KEY"]
+ANTHROPIC_API_KEY=st.secrets["CLAUDE_API_KEY"]
 chat_mode = "Select Chat Mode"
 
 @st.cache_resource
