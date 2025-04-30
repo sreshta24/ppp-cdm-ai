@@ -991,7 +991,7 @@ def get_llm_summary(user_prompt: str, df: pd.DataFrame) -> str:
         response = client.chat.completions.create(
                 model="o3-mini",  # Or "gpt-4" / "gpt-4-0125-preview"
                 messages=[{"role": "user", "content": prompt}],
-                max_tokens=1024,
+                max_completion_tokens=1024,
                 temperature=0.7
             )
         return response.choices[0].message.content
@@ -1036,7 +1036,7 @@ Use clear language and help Cortex Analyst build the most accurate query.
         response = client.chat.completions.create(
             model="o3-mini",  # Or "gpt-4" / "gpt-4-0125-preview"
             messages=[{"role": "user", "content": new_prompt}],
-            max_tokens=1024,
+            max_completion_tokens=1024,
             temperature=0.7
         )
         return response.choices[0].message.content
