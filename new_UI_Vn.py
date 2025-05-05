@@ -973,7 +973,7 @@ def get_llm_summary(user_prompt: str, df: pd.DataFrame) -> str:
     if df.empty:
         return "No data available for summary."
 
-    if not os.getenv("GEMINI_API_KEY"):
+    if not os.getenv("OPENAI_API_KEY"):
         return "Google API key not configured for summarization."
 
     # Prepare your prompt
