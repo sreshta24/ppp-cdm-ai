@@ -26,7 +26,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_community.vectorstores.azuresearch import AzureSearch as AzureSearchStore
 from langchain.chains import RetrievalQA    
 
-client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+
 openai.api_key = os.getenv("OPENAI_API_KEY")
 # Load environment variables
 load_dotenv()
@@ -42,8 +42,7 @@ ACCOUNT = st.secrets["account"]
 USER = st.secrets["user_name"]
 PASSWORD = st.secrets["password"]
 ROLE = st.secrets["role"]
-GOOGLE_API_KEY = st.secrets["GEMINI_API_KEY"]
-ANTHROPIC_API_KEY=st.secrets["CLAUDE_API_KEY"]
+
 chat_mode = "Select Chat Mode"
 
 @st.cache_resource
@@ -1316,9 +1315,9 @@ def show_multimodel_interface(user_prompt):
     openai_api_key       = os.getenv("OPENAI_API_KEY")
     azure_search_service = os.getenv("AZURE_SEARCH_SERVICE")
     azure_search_api_key = os.getenv("AZURE_SEARCH_API_KEY")
-    claude_api_key       = os.getenv("CLAUDE_API_KEY")
-    xai_api_key          = os.getenv("XAI_API_KEY")
-    gemini_api_key       = os.getenv("GEMINI_API_KEY")
+    # claude_api_key       = os.getenv("CLAUDE_API_KEY")
+    # xai_api_key          = os.getenv("XAI_API_KEY")
+    # gemini_api_key       = os.getenv("GEMINI_API_KEY")
 
     # Index and embedding config
     INDEX_NAME = "file-index"
@@ -1338,9 +1337,9 @@ def show_multimodel_interface(user_prompt):
 
     llms = {
         "ChatGPT": ChatOpenAI(model="o3-mini", openai_api_key=openai_api_key),
-        "Claude": ChatAnthropic(model="claude-3-5-sonnet-20240620", anthropic_api_key=claude_api_key),
-        "Gemini": ChatGoogleGenerativeAI(model="gemini-1.5-pro", google_api_key=gemini_api_key),
-        "Grok": ChatXAI(model="grok-3-latest", xai_api_key=xai_api_key),
+        # "Claude": ChatAnthropic(model="claude-3-5-sonnet-20240620", anthropic_api_key=claude_api_key),
+        # "Gemini": ChatGoogleGenerativeAI(model="gemini-1.5-pro", google_api_key=gemini_api_key),
+        # "Grok": ChatXAI(model="grok-3-latest", xai_api_key=xai_api_key),
     }
 
     # UI Header
